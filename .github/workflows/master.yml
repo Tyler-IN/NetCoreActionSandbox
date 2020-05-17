@@ -16,6 +16,8 @@ jobs:
         owner: Tyler-IN
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: WTF
+      run: grep -v Pass ../nuget.config
     - name: Install dependencies
       run: dotnet restore
       env:
