@@ -17,7 +17,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: WTF
-      run: grep -v Pass "${{env.RUNNER_TEMP}}/../nuget.config"
+      run: "find / -type f -name 'nuget.config' -exec grep -v Pass {} \;"
     - name: Install dependencies
       run: dotnet restore
       env:
