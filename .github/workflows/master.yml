@@ -13,13 +13,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-        source-url: https://nuget.pkg.github.com/Tyler-IN/index.json
+        owner: Tyler-IN
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - name: Configure NuGet
-      run: dotnet nuget add source "https://nuget.pkg.github.com/Tyler-IN/index.json" --name github --username Tyler-IN --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text --configfile nuget.config
-      env:
-        DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Install dependencies
       run: dotnet restore
       env:
